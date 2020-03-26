@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>NA</title>
+</head>
+
+<style>
+  #error {
+    color: red;
+    background-color: yellow;
+    display: none;
+  }
+
+  .ruleLeft,
+  .ruleRight,
+  #iterationLimit {
+    width: 100px;
+  }
+
+  #word{
+    width: 300px;
+  }
+</style>
+
+<body>
+
+  <h3>Add rule ("$" - stop)( "_" - space)</h3>
+
+  <div id="rules">
+    <div id="1">
+      <div class="rule">
+        <span class="indexRule">Rule ?:</span>
+        <input type="text" class="ruleLeft" placeholder="none" onkeypress='validate(event,this.id)' />
+        <span>→</span>
+        <input type="text" class="ruleRight" placeholder="none" onkeypress='validate(event,this.id)' />
+        <input type="button" class="addDown" value="↓ add" onclick="addDown(this)" />
+        <input type="button" class="deleteRule" value="X" onclick="deleteRule(this)" />
+      </div>
+    </div>
+  </div>
+
+  <h3>Iteration limit
+    <input type="text" id="iterationLimit" value="2000" onkeypress='validate(event,this.id)' />
+  </h3>
+
+  <h3>Enter word
+    <input type="text" id="word" placeholder="none" onkeypress='validate(event,this.id)' />
+    <input type="button" id="solve" value="Solve" onclick="solve()" />
+  </h3>
+
+
+  <div id="target"></div>
+  <div id="progress"></div>
+  <div id="error"></div>
+
+</body>
+
+<script src="main.js"></script>
+
+</html>
